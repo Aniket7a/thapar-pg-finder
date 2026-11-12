@@ -1,0 +1,24 @@
+{
+  "name": "thapar-pg-finder",
+  "version": "1.0.0",
+  "description": "Full-Stack PG & Rental Accommodation Finder for Thapar University (TIET), Patiala",
+  "main": "backend/server.js",
+  "type": "module",
+  "scripts": {
+    "install:all": "npm --prefix backend install && npm --prefix frontend install",
+    "build": "npm --prefix backend install && npm --prefix frontend install && npm --prefix frontend run build",
+    "start": "node backend/server.js",
+    "seed": "node backend/seed.js",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev"
+  },
+  "keywords": [
+    "thapar",
+    "pg-finder",
+    "mern",
+    "hostel",
+    "patiala"
+  ],
+  "author": "Thapar PG Finder Team",
+  "license": "ISC"
+}
