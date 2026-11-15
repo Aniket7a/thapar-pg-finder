@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import api from '../services/api';
 import PropertyCard from '../components/PropertyCard';
+import MainframeHeroLanding from '../components/MainframeHeroLanding';
 
 const popularLocalities = [
   { name: 'Bhadson Road', distance: '0.3 - 0.7 km', desc: 'Directly outside Gate 2 & Gate 3. Most popular for engineers.', count: 4 },
@@ -95,10 +96,20 @@ const HomePage = () => {
     navigate(`/properties?${params.toString()}`);
   };
 
+  const scrollToExplore = () => {
+    const el = document.getElementById('explore-pgs');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="space-y-16 sm:space-y-24 pb-16">
-      {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-red-50/60 via-white to-slate-50 pt-10 sm:pt-16 pb-16 border-b border-slate-200">
+      {/* 0. MAINFRAME HERO & 3D THAPAR SHOWCASE */}
+      <MainframeHeroLanding onEnterPlatform={scrollToExplore} />
+
+      {/* 1. THAPAR PG SEARCH & DISCOVERY SECTION */}
+      <section id="explore-pgs" className="relative overflow-hidden bg-gradient-to-b from-red-50/60 via-white to-slate-50 pt-10 sm:pt-16 pb-16 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto space-y-4">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-100 border border-red-200 text-red-800 text-xs font-bold uppercase tracking-wider animate-in fade-in duration-300">

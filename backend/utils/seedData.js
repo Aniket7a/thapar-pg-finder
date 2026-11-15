@@ -105,7 +105,7 @@ export const sampleProperties = [
     title: 'Thapar Haven Luxury Boys PG',
     propertyType: 'PG',
     description:
-      'Premier executive PG for Thapar University students situated directly on Bhadson Road, just 400m from Thapar Gate 2. Features fully furnished AC rooms, high-speed 300 Mbps Wi-Fi, hygienic 4-time buffet meals (breakfast, lunch, evening snacks, dinner), daily professional housekeeping, 24x7 power backup, and dedicated silent study hall.',
+      'Premier executive PG for Thapar University students situated directly on Bhadson Road, just 400m from Thapar Gate 2. Features fully furnished AC rooms with comfortable Indian cotton mattresses, high-speed 300 Mbps Wi-Fi, hygienic 4-time buffet meals (breakfast, lunch, evening snacks, dinner) with authentic Punjabi dal makhani, paneer, and hot tandoori rotis, daily professional housekeeping, 24x7 power backup, and dedicated silent study hall.',
     address: {
       street: 'Street 4, Near Jaggi Sweets, Bhadson Road',
       locality: 'Bhadson Road',
@@ -156,23 +156,23 @@ export const sampleProperties = [
     noticePeriodDays: 30,
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=1000&q=80',
-        caption: 'Spacious air-conditioned student bedroom',
+        url: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Spacious Indian student double sharing bedroom with AC',
         isPrimary: true,
       },
       {
         url: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1000&q=80',
-        caption: 'Modern study corner with ergonomic chair',
+        caption: 'Wooden study table & ergonomic chair with bookshelf',
+        isPrimary: false,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Nutritious North Indian student thali mess (Roti, Dal, Paneer, Rice)',
         isPrimary: false,
       },
       {
         url: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1000&q=80',
-        caption: 'Hygienic attached tiled washroom',
-        isPrimary: false,
-      },
-      {
-        url: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=80',
-        caption: 'Common dining hall and recreation zone',
+        caption: 'Tiled attached bathroom with geyser & shower',
         isPrimary: false,
       },
     ],
@@ -243,17 +243,22 @@ export const sampleProperties = [
     images: [
       {
         url: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&q=80',
-        caption: 'Aesthetic girls double sharing room',
+        caption: 'Neat and cozy girls double sharing room with wardrobes',
         isPrimary: true,
       },
       {
         url: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1000&q=80',
-        caption: 'Sunlit interior with large wardrobes',
+        caption: 'Indian bedroom interior with personal study desk & balcony view',
+        isPrimary: false,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Pure vegetarian hygienic daily hostel food',
         isPrimary: false,
       },
       {
         url: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1000&q=80',
-        caption: 'Lush green entrance and security gate',
+        caption: 'Secure gated entrance with lady security guard & biometric scanner',
         isPrimary: false,
       },
     ],
@@ -322,13 +327,18 @@ export const sampleProperties = [
     noticePeriodDays: 30,
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80',
-        caption: 'Minimalist private scholar studio',
+        url: 'https://images.unsplash.com/photo-1540518614846-7ede433c4ef3?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Quiet single scholar room with wooden cot & mattress',
         isPrimary: true,
       },
       {
-        url: 'https://images.unsplash.com/photo-1540518614846-7ede433c4ef3?auto=format&fit=crop&w=1000&q=80',
-        caption: 'Comfortable king-single orthopedic bed',
+        url: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Dedicated study workstation with power strip & fiber router',
+        isPrimary: false,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Patiala student studio building exterior',
         isPrimary: false,
       },
     ],
@@ -397,12 +407,17 @@ export const sampleProperties = [
     images: [
       {
         url: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1000&q=80',
-        caption: 'Bright double sharing room with balconies',
+        caption: 'Bright double sharing room with balconies in SST Nagar kothi',
         isPrimary: true,
       },
       {
-        url: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&q=80',
-        caption: 'Separate storage closets and study desks',
+        url: 'https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Wholesome North Indian thali served hot twice daily',
+        isPrimary: false,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Separate storage closets and study desks for roommates',
         isPrimary: false,
       },
     ],
@@ -471,12 +486,17 @@ export const sampleProperties = [
     images: [
       {
         url: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=1000&q=80',
-        caption: 'Modern living room with student study setup',
+        caption: 'Furnished living room with student sofas and study corner',
         isPrimary: true,
       },
       {
         url: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1000&q=80',
-        caption: 'Bedroom with attached balcony',
+        caption: 'Airy bedroom with attached balcony in Model Town',
+        isPrimary: false,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Modern Indian apartment building elevation',
         isPrimary: false,
       },
     ],
@@ -544,9 +564,19 @@ export const sampleProperties = [
     noticePeriodDays: 30,
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1540518614846-7ede433c4ef3?auto=format&fit=crop&w=1000&q=80',
-        caption: 'Cozy and quiet girls room',
+        url: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Quiet and comfortable Indian girls room with study desk',
         isPrimary: true,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Two separate wooden beds and almirahs',
+        isPrimary: false,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Homely pure vegetarian food in mess',
+        isPrimary: false,
       },
     ],
     averageRating: 4.8,
@@ -609,9 +639,19 @@ export const sampleProperties = [
     noticePeriodDays: 30,
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=1000&q=80',
-        caption: 'Hostel room facing the front lawn',
+        url: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Hostel dormitory room facing the Punjabi Bagh front lawn',
         isPrimary: true,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Spacious student mess and dining hall',
+        isPrimary: false,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Hostel building compound with two-wheeler parking',
+        isPrimary: false,
       },
     ],
     averageRating: 4.4,
@@ -674,9 +714,19 @@ export const sampleProperties = [
     noticePeriodDays: 30,
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1000&q=80',
-        caption: 'Tastefully furnished room with balcony',
+        url: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Tastefully furnished Indian girls room with study desk',
         isPrimary: true,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1540518614846-7ede433c4ef3?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Individual orthopedic spring mattress and study chair',
+        isPrimary: false,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Fresh and hygienic North Indian meal spread',
+        isPrimary: false,
       },
     ],
     averageRating: 4.7,
@@ -740,8 +790,18 @@ export const sampleProperties = [
     images: [
       {
         url: 'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?auto=format&fit=crop&w=1000&q=80',
-        caption: 'Executive room with premium joinery',
+        caption: 'Executive room with premium wood joinery and air conditioner',
         isPrimary: true,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Comfortable study workstation and laptop area',
+        isPrimary: false,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Executive 4-storey residential elevation on Bhadson Road',
+        isPrimary: false,
       },
     ],
     averageRating: 4.8,
@@ -804,9 +864,19 @@ export const sampleProperties = [
     noticePeriodDays: 30,
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1000&q=80',
-        caption: 'Chhoti Baradari room with wide study desks',
+        url: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Chhoti Baradari room with wide study desks and personal cupboards',
         isPrimary: true,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Pure veg North Indian dinner and breakfast',
+        isPrimary: false,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Clean tiled attached washroom with instant geyser',
+        isPrimary: false,
       },
     ],
     averageRating: 4.6,
@@ -869,9 +939,19 @@ export const sampleProperties = [
     noticePeriodDays: 15,
     images: [
       {
-        url: 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=1000&q=80',
-        caption: 'Budget friendly room near gate 1',
+        url: 'https://images.unsplash.com/photo-1540518614846-7ede433c4ef3?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Budget friendly student bed with ceiling fan & study table',
         isPrimary: true,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Personal study desk with books and notebooks',
+        isPrimary: false,
+      },
+      {
+        url: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1000&q=80',
+        caption: 'Residential student lane right opposite Thapar Gate 1',
+        isPrimary: false,
       },
     ],
     averageRating: 4.3,

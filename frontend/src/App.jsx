@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { CompareProvider } from './context/CompareContext';
 import Navbar from './components/Navbar';
@@ -55,13 +55,17 @@ const ProtectedRoute = ({ children, allowedRoles }) => {
 const AppContent = () => {
   const [calculatorOpen, setCalculatorOpen] = useState(false);
   const [checklistOpen, setChecklistOpen] = useState(false);
+  const location = useLocation();
+  const isLandingPage = location.pathname === '/';
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 font-sans">
-      <Navbar
-        onOpenCalculator={() => setCalculatorOpen(true)}
-        onOpenChecklist={() => setChecklistOpen(true)}
-      />
+      {!isLandingPage && (
+        <Navbar
+          onOpenCalculator={() => setCalculatorOpen(true)}
+          onOpenChecklist={() => setChecklistOpen(true)}
+        />
+      )}
 
       <main className="flex-1">
         <Routes>
