@@ -197,7 +197,61 @@ export const seedDatabase = async () => {
       link: `/agreements/${agreement._id}`,
     });
 
-    console.log('[Seed] Database successfully seeded with 11 sample properties, real users, reviews, agreements, and bookings!');
+    // 8. Insert Messages (Chat)
+    console.log('[Seed] Inserting sample chat messages...');
+    await Message.create({
+      sender: student1._id,
+      receiver: owner1._id,
+      property: createdProperties[0]._id,
+      content: 'Hello Sir, is hot water geyser available 24 hours in winter?',
+      read: true,
+    });
+    await Message.create({
+      sender: owner1._id,
+      receiver: student1._id,
+      property: createdProperties[0]._id,
+      content: 'Yes beta, individual 25L storage geysers are fitted in every room bathroom with power backup.',
+      read: true,
+    });
+
+    // 9. Insert Property Visit Request
+    console.log('[Seed] Inserting sample property visit request...');
+    await PropertyVisit.create({
+      student: student2._id,
+      property: createdProperties[1]._id,
+      owner: owner2._id,
+      preferredDate: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000),
+      preferredTimeSlot: 'Evening (03:00 PM - 06:00 PM)',
+      message: 'My parents and I want to visit the campus and inspect the girls residency before booking.',
+      status: 'Accepted',
+      ownerNotes: 'Welcome! Visiting hours 3 PM to 6 PM with lady warden Mrs. Sunita present.',
+    });
+
+    // 10. Insert Complaint
+    console.log('[Seed] Inserting sample complaint...');
+    await Complaint.create({
+      student: student1._id,
+      property: createdProperties[0]._id,
+      owner: owner1._id,
+      category: 'Maintenance & Repairs',
+      title: 'Study room tube light flickering',
+      description: 'The tube light above the study table in Room 204 has been flickering since yesterday.',
+      status: 'Resolved',
+      adminNotes: 'Electrician dispatched by owner and replaced tube light starter within 2 hours.',
+    });
+
+    // 11. Insert Report (Trust & Moderation)
+    console.log('[Seed] Inserting sample report...');
+    await Report.create({
+      reportedBy: student2._id,
+      property: createdProperties[2]._id,
+      reason: 'Misleading Photos/Prices',
+      details: 'Old photos on external WhatsApp group show cooler whereas now AC is installed and price adjusted accordingly.',
+      status: 'Resolved',
+      adminNotes: 'Listing verified on-site by admin; updated accurate AC electricity sub-meter policy displayed.',
+    });
+
+    console.log('[Seed] All 11 collections successfully populated in MongoDB!');
     return { success: true };
   } catch (err) {
     console.error('[Seed] Error seeding database:', err);
