@@ -1,10 +1,8 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import useTypewriter from '../hooks/useTypewriter';
 
 const SENSITIVITY = 0.8;
 const VIDEO_SRC = 'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260826_041744_63efcd78-bf7d-4039-99e2-2461e8a61903.mp4';
-const TYPEWRITER_TEXT = 'Glad you stopped in. Good taste tends to find us. Now, what are we building?';
 
 const MainframeHeroLanding = ({ onEnterPlatform }) => {
   const navigate = useNavigate();
@@ -17,19 +15,6 @@ const MainframeHeroLanding = ({ onEnterPlatform }) => {
 
   // UI state
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [pillsVisible, setPillsVisible] = useState(false);
-  const [copied, setCopied] = useState(false);
-
-  // Typewriter
-  const { displayed, done } = useTypewriter(TYPEWRITER_TEXT, 38, 600);
-
-  // Show pills 400ms after mount (independent of typewriter)
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setPillsVisible(true);
-    }, 400);
-    return () => clearTimeout(timer);
-  }, []);
 
   // Mouse-scrub video logic
   useEffect(() => {
@@ -82,13 +67,6 @@ const MainframeHeroLanding = ({ onEnterPlatform }) => {
     }
   };
 
-  const handleCopyEmail = (e) => {
-    e.preventDefault();
-    navigator.clipboard.writeText('hello@mainframe.co');
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   const scrollToThaparShowcase = () => {
     const el = document.getElementById('thapar-showcase-section');
     if (el) {
@@ -111,80 +89,52 @@ const MainframeHeroLanding = ({ onEnterPlatform }) => {
       />
 
       {/* Subtle overlay vignette for readability */}
-      <div className="fixed inset-0 z-0 bg-black/40 pointer-events-none" />
+      <div className="fixed inset-0 z-0 bg-black/45 pointer-events-none" />
 
-      {/* 2. Fixed Navbar */}
+      {/* 2. Fixed Top Navbar */}
       <header className="fixed top-0 left-0 right-0 z-10 w-full px-5 sm:px-8 py-4 sm:py-5 flex items-center justify-between">
         {/* Logo Left */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
           <span
-            className="text-[21px] sm:text-[26px] tracking-tight text-white font-medium select-none"
+            className="text-[20px] sm:text-[24px] tracking-tight text-white font-extrabold select-none"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            Mainframe&reg;
+            Thapar PG Finder
           </span>
-          <span
-            className="text-[25px] sm:text-[30px] text-white select-none leading-none -mt-1"
-            style={{ letterSpacing: '-0.02em' }}
-          >
-            &#10035;&#xFE0E;
-          </span>
+          <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
         </div>
 
-        {/* Center Desktop Links (separated by comma) */}
-        <nav className="hidden md:flex items-center text-[23px] text-white space-x-1">
+        {/* Center Desktop Links */}
+        <nav className="hidden md:flex items-center text-[16px] sm:text-[18px] text-white/90 gap-6">
+          <Link to="/properties" className="hover:text-white transition-colors">
+            Explore PGs
+          </Link>
           <a
             href="#thapar-showcase-section"
             onClick={(e) => {
               e.preventDefault();
               scrollToThaparShowcase();
             }}
-            className="hover:opacity-60 transition-opacity"
+            className="hover:text-white transition-colors"
           >
-            Labs
+            How It Works
           </a>
-          <span>, </span>
-          <a
-            href="#thapar-showcase-section"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToThaparShowcase();
-            }}
-            className="hover:opacity-60 transition-opacity"
-          >
-            Studio
-          </a>
-          <span>, </span>
-          <a
-            href="#thapar-showcase-section"
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToThaparShowcase();
-            }}
-            className="hover:opacity-60 transition-opacity"
-          >
-            Openings
-          </a>
-          <span>, </span>
-          <Link to="/properties" className="hover:opacity-60 transition-opacity">
-            Shop
+          <Link to="/compare" className="hover:text-white transition-colors">
+            Compare
+          </Link>
+          <Link to="/about" className="hover:text-white transition-colors">
+            About TIET Stay
           </Link>
         </nav>
 
         {/* Right CTA */}
         <div className="hidden md:flex items-center gap-4">
           <button
-            onClick={scrollToThaparShowcase}
-            className="text-[23px] text-white underline underline-offset-2 hover:opacity-60 transition-opacity"
-          >
-            Get in touch
-          </button>
-          <button
             type="button"
             onClick={onEnterPlatform || scrollToThaparShowcase}
-            className="px-4 py-1.5 bg-white text-black rounded-full text-sm font-semibold hover:bg-neutral-200 transition cursor-pointer"
+            className="px-5 py-2 bg-red-600 hover:bg-red-700 text-white rounded-full text-sm font-semibold shadow-lg shadow-red-600/30 transition-all duration-200 cursor-pointer"
           >
-            Enter Thapar PG Portal &rarr;
+            Enter PG Portal &rarr;
           </button>
         </div>
 
@@ -215,189 +165,93 @@ const MainframeHeroLanding = ({ onEnterPlatform }) => {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-[9] bg-black/90 backdrop-blur-md md:hidden flex flex-col justify-center px-8 gap-8 transition-opacity duration-300 ${
+        className={`fixed inset-0 z-[9] bg-black/95 backdrop-blur-md md:hidden flex flex-col justify-center px-8 gap-6 transition-opacity duration-300 ${
           mobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
-        <a
-          href="#thapar-showcase-section"
-          onClick={() => {
-            setMobileMenuOpen(false);
-            scrollToThaparShowcase();
-          }}
-          className="text-[32px] font-medium text-white hover:opacity-60"
-        >
-          Labs
-        </a>
-        <a
-          href="#thapar-showcase-section"
-          onClick={() => {
-            setMobileMenuOpen(false);
-            scrollToThaparShowcase();
-          }}
-          className="text-[32px] font-medium text-white hover:opacity-60"
-        >
-          Studio
-        </a>
-        <a
-          href="#thapar-showcase-section"
-          onClick={() => {
-            setMobileMenuOpen(false);
-            scrollToThaparShowcase();
-          }}
-          className="text-[32px] font-medium text-white hover:opacity-60"
-        >
-          Openings
-        </a>
         <Link
           to="/properties"
           onClick={() => setMobileMenuOpen(false)}
-          className="text-[32px] font-medium text-white hover:opacity-60"
+          className="text-[28px] font-bold text-white hover:text-red-400"
         >
-          Shop
+          Explore PGs
+        </Link>
+        <a
+          href="#thapar-showcase-section"
+          onClick={() => {
+            setMobileMenuOpen(false);
+            scrollToThaparShowcase();
+          }}
+          className="text-[28px] font-bold text-white hover:text-red-400"
+        >
+          How It Works
+        </a>
+        <Link
+          to="/compare"
+          onClick={() => setMobileMenuOpen(false)}
+          className="text-[28px] font-bold text-white hover:text-red-400"
+        >
+          Compare PGs
+        </Link>
+        <Link
+          to="/about"
+          onClick={() => setMobileMenuOpen(false)}
+          className="text-[28px] font-bold text-white hover:text-red-400"
+        >
+          About
         </Link>
         <button
           onClick={() => {
             setMobileMenuOpen(false);
-            scrollToThaparShowcase();
+            if (onEnterPlatform) onEnterPlatform();
+            else scrollToThaparShowcase();
           }}
-          className="text-[32px] font-medium text-white underline underline-offset-4 text-left"
+          className="w-full text-center py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-full text-base mt-4 shadow-lg shadow-red-600/30"
         >
-          Get in touch
+          Enter Thapar PG Portal &rarr;
         </button>
-        <Link
-          to="/properties"
-          onClick={() => setMobileMenuOpen(false)}
-          className="inline-block text-center py-3 bg-white text-black font-bold rounded-full text-base mt-4"
-        >
-          Explore Thapar PGs &rarr;
-        </Link>
       </div>
 
-      {/* 3. Hero Section (z-index: 1) */}
-      <main className="relative z-1 min-h-screen h-screen flex flex-col justify-end pb-12 md:justify-center md:pb-0 px-5 sm:px-8 md:px-10 overflow-hidden">
-        <div className="max-w-xl relative z-10">
-          {/* Blurred Intro Label */}
-          <div
-            className="pointer-events-none select-none mb-5 sm:mb-6"
-            style={{
-              fontSize: 'clamp(18px, 4vw, 26px)',
-              lineHeight: 1.3,
-              fontWeight: 400,
-              color: '#fff',
-              filter: 'blur(4px)',
-            }}
+      {/* 3. Minimal Clean Hero Section (z-index: 1) */}
+      <main className="relative z-1 min-h-screen h-screen flex flex-col justify-end pb-16 md:justify-center md:pb-0 px-6 sm:px-12 md:px-16 overflow-hidden">
+        <div className="max-w-2xl relative z-10 space-y-4">
+          {/* Main Title: Thapar PG Finder */}
+          <h1
+            className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-tight drop-shadow-md"
+            style={{ fontFamily: 'var(--font-heading)' }}
           >
-            Hey there, meet A.R.I.A,
-            <br />
-            Mainframe's Adaptive Response Interface Agent
-          </div>
+            Thapar PG Finder
+          </h1>
 
-          {/* Typewriter Text */}
-          <p
-            className="text-white mb-5 sm:mb-6"
-            style={{
-              fontSize: 'clamp(18px, 4vw, 26px)',
-              lineHeight: 1.35,
-              fontWeight: 400,
-              minHeight: '54px',
-            }}
-          >
-            {displayed}
-            {!done && (
-              <span
-                className="inline-block w-[2px] h-[1.1em] bg-white align-middle ml-[2px] animate-blink"
-                aria-hidden="true"
-              />
-            )}
+          {/* One Small Tagline */}
+          <p className="text-base sm:text-xl md:text-2xl text-slate-200/90 font-normal leading-relaxed max-w-lg drop-shadow">
+            Verified student accommodations, PGs & hostels near TIET Patiala.
           </p>
 
-          {/* Action Pill Buttons */}
-          <div
-            className={`flex flex-wrap gap-y-1 transition-all duration-400 ease-out ${
-              pillsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
-            }`}
-          >
-            {/* White Pill 1 */}
+          {/* Clean Action Buttons */}
+          <div className="pt-2 flex flex-wrap items-center gap-3">
+            <button
+              type="button"
+              onClick={onEnterPlatform || scrollToThaparShowcase}
+              className="px-7 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-full text-sm sm:text-base shadow-xl shadow-red-600/40 transition-all duration-200 transform hover:-translate-y-0.5 cursor-pointer flex items-center gap-2"
+            >
+              <span>Explore PGs Near Campus</span>
+              <span>&rarr;</span>
+            </button>
+
             <button
               type="button"
               onClick={scrollToThaparShowcase}
-              className="inline-flex items-center justify-center bg-white text-black border border-black/10 rounded-full text-[13px] sm:text-[15px] px-4 sm:px-5 py-[0.3em] mx-[0.2em] mb-[0.4em] whitespace-nowrap hover:bg-black hover:text-white transition-colors duration-200"
+              className="px-6 py-3 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-medium rounded-full text-sm sm:text-base border border-white/20 transition-all duration-200 cursor-pointer"
             >
-              Pitch us an idea
+              How It Works
             </button>
-
-            {/* White Pill 2 */}
-            <button
-              type="button"
-              onClick={scrollToThaparShowcase}
-              className="inline-flex items-center justify-center bg-white text-black border border-black/10 rounded-full text-[13px] sm:text-[15px] px-4 sm:px-5 py-[0.3em] mx-[0.2em] mb-[0.4em] whitespace-nowrap hover:bg-black hover:text-white transition-colors duration-200"
-            >
-              Come work here
-            </button>
-
-            {/* White Pill 3 */}
-            <button
-              type="button"
-              onClick={scrollToThaparShowcase}
-              className="inline-flex items-center justify-center bg-white text-black border border-black/10 rounded-full text-[13px] sm:text-[15px] px-4 sm:px-5 py-[0.3em] mx-[0.2em] mb-[0.4em] whitespace-nowrap hover:bg-black hover:text-white transition-colors duration-200"
-            >
-              Send a brief hello
-            </button>
-
-            {/* White Pill 4 */}
-            <button
-              type="button"
-              onClick={scrollToThaparShowcase}
-              className="inline-flex items-center justify-center bg-white text-black border border-black/10 rounded-full text-[13px] sm:text-[15px] px-4 sm:px-5 py-[0.3em] mx-[0.2em] mb-[0.4em] whitespace-nowrap hover:bg-black hover:text-white transition-colors duration-200"
-            >
-              See how we operate
-            </button>
-
-            {/* Outline Pill with Email Copy */}
-            <button
-              type="button"
-              onClick={handleCopyEmail}
-              className="inline-flex items-center justify-center text-white bg-transparent border border-white rounded-full text-[13px] sm:text-[15px] px-4 sm:px-5 py-[0.3em] mx-[0.2em] mb-[0.4em] whitespace-nowrap gap-2 sm:gap-3 hover:bg-white hover:text-black transition-colors duration-200 cursor-pointer"
-            >
-              <span>
-                Reach us:{' '}
-                <span className="underline underline-offset-1">hello@mainframe.co</span>
-              </span>
-              {copied ? (
-                <span className="text-[11px] font-bold text-emerald-400">Copied!</span>
-              ) : (
-                <svg
-                  width="12"
-                  height="12"
-                  viewBox="0 0 12 12"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="inline-block shrink-0 stroke-current"
-                >
-                  <rect x="3.5" y="1.5" width="7" height="7" rx="1" strokeWidth="1" />
-                  <path
-                    d="M1.5 4.5V9.5C1.5 10.0523 1.94772 10.5 2.5 10.5H7.5"
-                    strokeWidth="1"
-                    strokeLinecap="round"
-                  />
-                </svg>
-              )}
-            </button>
-
-            {/* Thapar Portal Gateway Highlight Pill */}
-            <Link
-              to="/properties"
-              className="inline-flex items-center justify-center bg-red-600 text-white font-bold rounded-full text-[13px] sm:text-[15px] px-5 py-[0.3em] mx-[0.2em] mb-[0.4em] whitespace-nowrap hover:bg-red-700 shadow-lg shadow-red-600/30 transition-all duration-200 animate-pulse"
-            >
-              <span>⚡ Enter Thapar PG Finder Portal &rarr;</span>
-            </Link>
           </div>
         </div>
 
-        {/* Bottom indicator */}
-        <div className="absolute bottom-4 right-5 sm:right-8 text-[11px] text-white/50 hidden sm:flex items-center gap-2">
-          <span>&larr; Drag mouse horizontally across screen to scrub video &rarr;</span>
+        {/* Bottom scrubbing guide indicator */}
+        <div className="absolute bottom-5 right-6 sm:right-10 text-[11px] text-white/50 hidden sm:flex items-center gap-2">
+          <span>&larr; Drag mouse horizontally to interact with 3D scene &rarr;</span>
         </div>
       </main>
 
